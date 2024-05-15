@@ -42,10 +42,9 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <ClCompile>
-      <CPPLanguageStandard>
-      </CPPLanguageStandard>
-      <AdditionalIncludeDirectories>..\Core\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy;..\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\Drivers\CMSIS\Include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32L152xC;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>..\Core\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy;..\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\Drivers\CMSIS\Include;../app/app/xprintf;../app/app;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG=1;USE_HAL_DRIVER;STM32L152xC;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CLanguageStandard />
     </ClCompile>
@@ -59,10 +58,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
-      <CPPLanguageStandard>
-      </CPPLanguageStandard>
-      <AdditionalIncludeDirectories>..\Core\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy;..\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\Drivers\CMSIS\Include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32L152xC;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>..\Core\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc;..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy;..\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\Drivers\CMSIS\Include;../app/app;../app/app/xprintf;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;STM32L152xC;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CLanguageStandard />
     </ClCompile>
@@ -83,9 +81,7 @@
     <ClInclude Include="..\Core\Inc\main.h" />
     <ClInclude Include="..\Core\Inc\stm32l1xx_hal_conf.h" />
     <ClInclude Include="..\Core\Inc\stm32l1xx_it.h" />
-    <ClCompile Include="..\Core\Src\main.c" />
     <ClCompile Include="..\Core\Src\stm32l1xx_hal_msp.c" />
-    <ClCompile Include="..\Core\Src\stm32l1xx_it.c" />
     <ClCompile Include="..\Core\Src\syscalls.c" />
     <ClCompile Include="..\Core\Src\sysmem.c" />
     <ClCompile Include="..\Core\Src\system_stm32l1xx.c" />
@@ -166,5 +162,14 @@
     <None Include="EmbeddedProject1-Debug.vgdbsettings" />
     <None Include="EmbeddedProject1-Release.vgdbsettings" />
     <None Include="stm32.xml" />
+    <ClCompile Include="..\app\app\rtc_internal.cpp" />
+    <ClInclude Include="..\app\app\rtc_internal.h" />
+    <ClInclude Include="..\app\app\static_string.h" />
+    <ClCompile Include="..\app\app\xprintf\xprintf.c" />
+    <ClInclude Include="..\app\app\xprintf\xprintf.h" />
+    <ClCompile Include="..\app\app\xprintf\xuart_stream.cpp" />
+    <ClInclude Include="..\app\app\xprintf\xuart_stream.h" />
+    <ClCompile Include="..\Core\Src\main.cpp" />
+    <ClCompile Include="..\Core\Src\stm32l1xx_it.cpp" />
   </ItemGroup>
 </Project>
